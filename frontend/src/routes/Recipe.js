@@ -51,23 +51,26 @@ class Recipe extends React.Component{
     } else {
       var filtered = this.state.data.filter((item) => item.category === this.state.selectedcategory);
     }
-
-
-    console.log(this.state.selectedcategory);
+    var uniquecategory=[];
+    var subnav=[];
+    for (var i=0; i<this.state.data.length; i++) {
+      if (!uniquecategory.includes(this.state.data[i].category))
+        {
+        uniquecategory.push(this.state.data[i].category)
+        subnav.push(<li className="nav-item" key={i}>
+        <Link
+          className="nav-link"
+          to={"#/"+this.state.data[i].category}>
+            {this.state.data[i].category}</Link>
+        </li>)
+        }
+      }
     return (
       <div className="container">
         <div className="row">
           <div className="col">
             <nav className="nav flex-column">
-               <li className="nav-item" >
-                 <Link className="nav-link" to="#/Cookies">Cookies</Link>
-               </li>
-               <li className="nav-item">
-                 <Link className="nav-link" to="#/Drinks">Drinks</Link>
-               </li>
-               <li className="nav-item">
-                 <Link className="nav-link" to="#/Cakes">Cakes</Link>
-               </li>
+            {subnav}
              </nav>
           </div>
           <div className="col">

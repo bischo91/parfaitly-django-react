@@ -12,7 +12,7 @@ class RecipeDetail extends React.Component{
 
   render() {
       const { location } = this.props;
-      console.log(location)
+
       return (
         <div className="container">
           <div className="row">
@@ -36,7 +36,10 @@ class RecipeDetail extends React.Component{
               className="figure-img img-fluid rounded">
             </img>
             <div className="list-group-item">
-              <h6>{location.state.steps}</h6>
+              <h6>{location.state.steps
+                  .replace(/step/gi,'').split(/\d\./g)
+                  .map(str => <p>{str}</p>)
+                  }</h6>
             </div>
           </div>
         </div>
