@@ -1,4 +1,3 @@
-import "./Navigation.css";
 import React from "react";
 import { Link } from "react-router-dom";
 import Recipe from "../routes/Recipe";

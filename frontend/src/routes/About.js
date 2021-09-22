@@ -1,6 +1,5 @@
 import React from "react";
 import Recipe from "../components/RecipeRead";
-import bootstrap from "bootstrap";
 
 function About(props){
     return (

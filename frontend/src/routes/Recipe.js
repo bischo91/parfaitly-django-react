@@ -1,8 +1,6 @@
 import React from "react";
 import RecipeRead from "../components/RecipeRead";
 import { Link, HashRouter, Route } from "react-router-dom";
-
-
 import Navigation from "../components/Navigation";
 
 class Recipe extends React.Component{
@@ -57,7 +55,7 @@ class Recipe extends React.Component{
       if (!uniquecategory.includes(this.state.data[i].category))
         {
         uniquecategory.push(this.state.data[i].category)
-        subnav.push(<li className="nav-item" key={i}>
+        subnav.push(<li className="nav-item text-secondary text-start" key={i}>
         <Link
           className="nav-link"
           to={"#/"+this.state.data[i].category}>
@@ -67,13 +65,13 @@ class Recipe extends React.Component{
       }
     return (
       <div className="container">
-        <div className="row">
-          <div className="col">
-            <nav className="nav flex-column">
+        <div className="row mt-4">
+          <div className="col-2 nav flex-column top-3 navbar-expand-lg navbar-light bg-light">
+            <nav>
             {subnav}
              </nav>
           </div>
-          <div className="col">
+          <div className="col-7 mx-auto">
                 <ul>{
                     filtered.map((item) => {
                     return (
