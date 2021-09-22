@@ -37,7 +37,7 @@ class RecipeDetail extends React.Component{
             </img>
             <div className="list-group-item">
               <h6>{location.state.steps
-                  .replace(/step/gi,'').split(/\d\./g)
+                  .replace(/step/gi,'').split(/(?=\d\.)/g)
                   .map(str => <p>{str}</p>)
                   }</h6>
             </div>
