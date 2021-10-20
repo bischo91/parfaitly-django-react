@@ -5,7 +5,6 @@ import { HashRouter, Route, Link } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import About from "./routes/About";
 import Recipe from "./routes/Recipe";
-import Blog from "./routes/Blog";
 import RecipeDetail from "./routes/RecipeDetail";
 
 import bootstrap from "bootstrap";
@@ -49,10 +48,7 @@ class App extends Component {
       <Navigation />
         <Route path="/" exact={true} component={About} />
         <Route path="/recipe" exact={true} component={Recipe} />
-        <Route path="/blog" exact={true} component={Blog} />
         <Route path="/recipe/:category" component={RecipeDetail}/>
-
-
       </HashRouter>
     );
   }

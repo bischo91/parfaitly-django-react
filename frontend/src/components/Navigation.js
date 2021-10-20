@@ -13,9 +13,6 @@ function Navigation(){
           <li className="nav-item">
             <Link className="nav-link" to="/recipe">Recipe</Link>
           </li>
-          <li className="nav-item">
-            <Link className="nav-link" to="/blog">Blog</Link>
-          </li>
         </ul>
       </nav>
     </div>
