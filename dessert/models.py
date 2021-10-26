@@ -6,6 +6,7 @@ class Dessert(models.Model):
         ('Cakes', 'Cakes'),
         ('Drinks', 'Drinks'),
         ('Pastry', 'Pastry'),
+        ('Test', 'Test'),
     )
     title = models.CharField(max_length=100)
     category = models.CharField(max_length=100, choices=DESSERT_TYPE)

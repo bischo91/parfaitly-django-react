@@ -28,7 +28,11 @@ class RecipeDetail extends React.Component{
             </div>
             <div className="text-primary">{location.state.category}</div>
             <div className="list-group-item">
-              Ingredients - {location.state.ingredients}</div>
+              Ingredients:
+              {location.state.ingredients
+                .split("-")
+                .map(str => <p>{"- "+str}</p>)
+              }</div>
             <img
               src={location.state.img_src}
               alt={location.state.title}
@@ -37,7 +41,7 @@ class RecipeDetail extends React.Component{
             </img>
             <div className="list-group-item">
               <h6>{location.state.steps
-                  .replace(/step/gi,'').split(/(?=\d\.)/g)
+                  .replace(/step./gi,'*temp*').split('*temp*')
                   .map(str => <p>{str}</p>)
                   }</h6>
             </div>
@@ -49,3 +53,5 @@ class RecipeDetail extends React.Component{
 }
 
 export default RecipeDetail;
+
+// https://www.npmjs.com/package/react-infinite-scroller
