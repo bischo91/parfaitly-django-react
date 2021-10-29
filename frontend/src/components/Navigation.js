@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Recipe from "../routes/Recipe";
 
 function togglebutton(){
-  document.getElementById('togglenav').setAttribute("class","md:visible");
+  resultnav.classList.toggle('hidden');
 }
 
 function Navigation(){
@@ -46,7 +46,7 @@ function Navigation(){
                   dark:focus:text-gray-400
                 "
                 aria-label="toggle menu"
-                onClick="togglebutton()"
+                onClick={togglebutton}
               >
                 <svg viewBox="0 0 24 24" className="w-6 h-6 fill-current">
                   <path
@@ -58,7 +58,7 @@ function Navigation(){
             </div>
           </div>
 
-          <div className="items-center md:flex">
+          <div id="resultnav" className="hidden items-center md:flex">
             <div className="flex flex-col md:flex-row md:mx-6">
               <Link
                 className="
@@ -92,7 +92,3 @@ function Navigation(){
 }
 
 export default Navigation;
-
-
-
-// Using <a href> refreshes page -> no point of using React
