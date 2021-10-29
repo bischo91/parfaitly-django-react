@@ -25,7 +25,7 @@ module.exports = {
             importLoaders: 1,
             modules: true
           }
-        }
+        },
       ],
       include: /\.module\.css$/
     },
@@ -33,7 +33,8 @@ module.exports = {
       test: /\.css$/,
       use: [
         'style-loader',
-        'css-loader'
+        'css-loader',
+        'postcss-loader'
       ],
       exclude: /\.module\.css$/
     }

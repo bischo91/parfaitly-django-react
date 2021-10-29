@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import "./App.css";
 import { render } from "react-dom";
 import { HashRouter, Route, Link } from "react-router-dom";
 import Navigation from "./components/Navigation";
