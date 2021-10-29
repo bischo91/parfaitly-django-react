@@ -16,11 +16,16 @@ class RecipeDetail extends React.Component{
       return (
         <div className="container">
           <div className="row">
-            <Breadcrumb>
-              <Breadcrumb.Item href="#/recipe">Recipe</Breadcrumb.Item>
-              <Breadcrumb.Item
-                href={"#/recipe#/"+location.state.category}>{location.state.category}</Breadcrumb.Item>
-            </Breadcrumb>
+            <ol>
+              <li>
+                <a href="#/recipe" className="text-blue-500 font-bold">Recipe</a>
+              </li>
+              <li>
+                <a href={"#/recipe#/"+location.state.category}
+                  className="text-blue-500 font-bold">{location.state.category}
+                </a>
+              </li>
+            </ol>
           </div>
           <div className="row">
             <div className="text-primary">
