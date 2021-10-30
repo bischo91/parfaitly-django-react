@@ -13,28 +13,26 @@ class Recipe extends React.Component{
       loaded: false,
       placeholder: "Loading",
       selectedcategory: "",
-      scrollindex: Array.from( { length: 2}),
+      scrollindex: Array.from( { length: 3}),
       hasMore:true,
 
     };
   }
 
   fetchData = () => {
-    // if (this.state.scrollindex.length >= filtered.length){
-    //   this.setState({ hasMore: false });
-    //   return;
-    // }
+    if (this.state.scrollindex.length >= this.state.filtereddata.length){
+      this.setState({ hasMore: false });
+      return;
+    }
      // a fake async api call like which sends
-     // 20 more records in .5 secs
      setTimeout(() => {
-       //var newindex = this.state.scrollindex + 1
        this.setState({
-         scrollindex: this.state.scrollindex.concat(Array.from({ length: 2 })),
+         scrollindex: this.state.scrollindex.concat(Array.from({ length: 1 })),
          loaded:false,
      })
        console.log('fetchdata');
        console.log(this.state);
-     }, 1500);
+     }, 1000);
    };
 
   componentDidMount() {
@@ -62,7 +60,6 @@ class Recipe extends React.Component{
             this.setState({filtereddata: this.state.data.filter((item) => item.category === window.location.hash.split('/')[2])})
           }
         })
-
       console.log('fetch');
       console.log(this.state);
       }
@@ -101,10 +98,9 @@ class Recipe extends React.Component{
         }
       }
     return (
-      <div className="min-h-screen flex flex-row bg-gray-100">
-
+      <div className="flex flex-row bg-gray-100">
         <div className="flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden">
-          <ul className="flex flex-col py-4">
+        <ul className="flex flex-col py-4">
           {subnav}
         </ul>
         </div>
@@ -112,15 +108,19 @@ class Recipe extends React.Component{
           dataLength={this.state.scrollindex.length} //This is important field to render the next data
           next={this.fetchData}
           hasMore={this.state.hasMore}
-          loader={<h4 className="hidden">...</h4>}
+          loader={
+            <div class="flex items-center justify-center space-x-2 animate-pulse"><br></br>
+              <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
+            </div>
+          }
           endMessage={
-            <p style={{ textAlign: 'center' }}>
-              .
-            </p>
+            <hr />
           }
           style={{oveflow:"hidden !important"}}
+          className="w-full ml-10"
         >
-          <hr />
           <div className="overflow-hidden">
               {
                   this.state.filtereddata.slice(0, this.state.scrollindex.length).map((item, index) => (
