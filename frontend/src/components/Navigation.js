@@ -6,6 +6,12 @@ function togglebutton(){
   resultnav.classList.toggle('hidden');
 }
 
+function navdisappear(){
+  if (!resultnav.classList.contains('hidden')){
+    resultnav.classList.toggle('hidden');
+  }
+}
+
 function Navigation(){
     return (
       <nav className="bg-white shadow dark:bg-gray-800">
@@ -30,7 +36,9 @@ function Navigation(){
                   hover:text-gray-700
                   dark:hover:text-gray-300
                 "
-                to="/">
+                to="/"
+                onClick={navdisappear}
+                >
                 Parfaitly
               </Link>
             </div>
@@ -57,7 +65,6 @@ function Navigation(){
               </button>
             </div>
           </div>
-
           <div id="resultnav" className="hidden items-center md:flex">
             <div className="flex flex-col md:flex-row md:mx-6">
               <Link
@@ -69,7 +76,9 @@ function Navigation(){
                   dark:hover:text-indigo-400
                   md:mx-4 md:my-0
                 "
-                to="/">
+                to="/"
+                onClick={navdisappear}
+                >
                 Home
               </Link>
               <Link
@@ -81,7 +90,9 @@ function Navigation(){
                   dark:hover:text-indigo-400
                   md:mx-4 md:my-0
                 "
-                to="/recipe">
+                to="/recipe"
+                onClick={navdisappear}
+                >
                 Recipe
               </Link>
             </div>

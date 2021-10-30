@@ -17,10 +17,14 @@ function RecipeRead( {id, title, category, ingredients, steps, img_src, created_
                 created_at
             }
         }}>
-          <div className="container-fluid d-flex justify-content-center row">
+          <div className="h-64">
             <br/>
-            <div className="row text-secondary"><h2>{title}</h2></div>
-            <img src={img_src} alt={title} title={title} className="figure-img img-fluid rounded"></img>
+            <h2>{title}</h2>
+            <img
+              src={img_src}
+              alt={title}
+              title={title}
+              className="h-48"></img>
             <br/><br/>
           </div>
         </Link>
