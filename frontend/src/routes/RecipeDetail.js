@@ -14,43 +14,46 @@ class RecipeDetail extends React.Component{
       const { location } = this.props;
 
       return (
-        <div className="container">
-          <div className="row">
-            <ol>
-              <li>
-                <a href="#/recipe" className="text-blue-500 font-bold">Recipe</a>
-              </li>
-              <li>
-                <a href={"#/recipe#/"+location.state.category}
-                  className="text-blue-500 font-bold">{location.state.category}
-                </a>
+        <div className="container w-full p-4 mx-auto">
+            <ol className="list-reset flex text-grey-dark">
+              <li><a href="#/recipe" className="font-bold">
+                Recipe
+              </a></li>
+              <li><span className="mx-2">/</span></li>
+              <li><a href={"#/recipe#/"+location.state.category} className="font-bold">
+                {location.state.category}
+                </a></li>
+              <li><span class="mx-2">/</span></li>
+              <li className="font-bold">
+                {location.state.title}
               </li>
             </ol>
-          </div>
-          <div className="row">
-            <div className="text-primary">
-              <h5>{location.state.title}</h5>
-            </div>
-            <div className="text-primary">{location.state.category}</div>
-            <div className="list-group-item">
-              Ingredients:
+            <h5 className="mt-2 mb-2">{location.state.title}</h5>
+            <h6 className='my-2'>Ingredients:</h6>
+            <ol className="p-2 lg:grid lg:grid-cols-2 lg:mb-12 gap-2">
               {location.state.ingredients
-                .split("-")
-                .map(str => <p>{"- "+str}</p>)
-              }</div>
-            <img
-              src={location.state.img_src}
-              alt={location.state.title}
-              title={location.state.title}
-              className="figure-img img-fluid rounded">
-            </img>
-            <div className="list-group-item">
-              <h6>{location.state.steps
-                  .replace(/step./gi,'*temp*').split('*temp*')
-                  .map(str => <p>{str}</p>)
-                  }</h6>
+                .replaceAll('* ', '-* ')
+                .split('-')
+                .filter(e => e)
+                .map(str => <div><li>{("-"+str).replace("-*", "*")}</li></div>)
+              }</ol>
+            <div className="lg:grid lg:grid-cols-2 gap-4">
+              <div>
+                <img
+                  src={location.state.img_src}
+                  alt={location.state.title}
+                  title={location.state.title}
+                  className="mx-auto my-4 w-full sm:w-5/6 md:w-4/6">
+                </img>
+              </div>
+              <div>
+                <ol>{location.state.steps
+                    .replace(/step./gi,'*temp*').split('*temp*')
+                    .map(str => <li className="pb-2 lg:pb-4">{str}</li>)
+                    }
+                </ol>
             </div>
-          </div>
+            </div>
         </div>
         );
 

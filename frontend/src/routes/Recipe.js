@@ -13,7 +13,7 @@ class Recipe extends React.Component{
       loaded: false,
       placeholder: "Loading",
       selectedcategory: "",
-      scrollindex: Array.from( { length: 2}),
+      scrollindex: Array.from( { length: 3}),
       hasMore:true,
 
     };
@@ -98,7 +98,7 @@ class Recipe extends React.Component{
         }
       }
     return (
-      <div className="flex flex-row bg-gray-100">
+      <div className="flex flex-row bg-gray-100 container">
         <div className="flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden">
         <ul className="flex flex-col py-4">
           {subnav}
@@ -110,9 +110,9 @@ class Recipe extends React.Component{
           hasMore={this.state.hasMore}
           loader={
             <div class="flex items-center justify-center space-x-2 animate-pulse"><br></br>
-              <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
-              <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
-              <div class="w-1 h-1 bg-blue-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-black-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-black-400 rounded-full"></div>
+              <div class="w-1 h-1 bg-black-400 rounded-full"></div>
             </div>
           }
           endMessage={
