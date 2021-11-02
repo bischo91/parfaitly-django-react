@@ -13,7 +13,7 @@ class Recipe extends React.Component{
       loaded: false,
       placeholder: "Loading",
       selectedcategory: "",
-      scrollindex: Array.from( { length: 3}),
+      scrollindex: Array.from( { length: 2}),
       hasMore:true,
 
     };
@@ -119,7 +119,7 @@ class Recipe extends React.Component{
             <hr />
           }
           style={{oveflow:"hidden !important"}}
-          className="w-full ml-10"
+          className=""
         >
           <div className="overflow-hidden">
               {
