@@ -2,11 +2,11 @@ from django.db import models
 
 class Dessert(models.Model):
     DESSERT_TYPE = (
-        ('Cookies', 'Cookies'),
-        ('Cakes', 'Cakes'),
-        ('Drinks', 'Drinks'),
+        ('Cookie', 'Cookie'),
+        ('Cake', 'Cake'),
+        ('Drink', 'Drink'),
         ('Pastry', 'Pastry'),
-        ('Test', 'Test'),
+        ('Bread', 'Bread'),
     )
     title = models.CharField(max_length=100)
     category = models.CharField(max_length=100, choices=DESSERT_TYPE)
