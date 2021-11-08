@@ -28,9 +28,9 @@ class RecipeDetail extends React.Component{
                 {location.state.title}
               </li>
             </ol>
-            <h5 className="mt-2 mb-2">{location.state.title}</h5>
-            <h6 className='my-2'>Ingredients:</h6>
-            <ol className="p-2 lg:grid lg:grid-cols-2 lg:mb-12 gap-2">
+            <div className="mt-2 mb-2 4xl text-pink-900">{location.state.title}</div>
+            <div className='my-2 2xl text-pink-500	'>Ingredients:</div>
+            <ol className="p-2 lg:grid lg:grid-cols-2 lg:mb-12 gap-2 text-pink-500">
               {location.state.ingredients
                 .replaceAll('* ', '-* ')
                 .split('-')
@@ -46,7 +46,7 @@ class RecipeDetail extends React.Component{
                   className="mx-auto my-4 w-full sm:w-5/6 md:w-4/6">
                 </img>
               </div>
-              <div>
+              <div className="text-pink-800">
                 <ol>{location.state.steps
                     .replace(/step./gi,'*temp*').split('*temp*')
                     .map(str => <li className="pb-2 lg:pb-4">{str}</li>)

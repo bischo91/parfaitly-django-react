@@ -37,6 +37,13 @@ module.exports = {
         'postcss-loader'
       ],
       exclude: /\.module\.css$/
+    },
+    {
+      test: /\.(jpe?g|png|gif|svg)$/i,
+      loader: 'file-loader',
+      options:{
+        name: '/public/icons/[name].[ext]'
+      }
     }
   ]
 },
