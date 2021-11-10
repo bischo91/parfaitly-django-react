@@ -32,7 +32,7 @@ class Recipe extends React.Component{
      })
        console.log('fetchdata');
        console.log(this.state);
-     }, 1000);
+     }, 2000);
    };
 
   componentDidMount() {
@@ -98,7 +98,7 @@ class Recipe extends React.Component{
         }
       }
     return (
-      <div className="flex flex-row bg-gray-100 container">
+      <div className="flex flex-row container">
         <div className="flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden">
         <ul className="flex flex-col py-4">
           {subnav}
@@ -109,10 +109,10 @@ class Recipe extends React.Component{
           next={this.fetchData}
           hasMore={this.state.hasMore}
           loader={
-            <div class="flex items-center justify-center space-x-2 animate-pulse"><br></br>
-              <div class="w-1 h-1 bg-black-400 rounded-full"></div>
-              <div class="w-1 h-1 bg-black-400 rounded-full"></div>
-              <div class="w-1 h-1 bg-black-400 rounded-full"></div>
+            <div class="flex items-center justify-center space-x-10 animate-pulse">
+              <div class="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
+              <div class="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
+              <div class="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
             </div>
           }
           endMessage={

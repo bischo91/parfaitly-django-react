@@ -10,7 +10,7 @@ function flipimg(){
 
 function About(props){
     return (
-      <div className="bg-gray-100 min-h-screen top-8 relative">
+      <div>
         <div className="flip -mt-20">
           <div id="profileimg"
             className="flip-image"

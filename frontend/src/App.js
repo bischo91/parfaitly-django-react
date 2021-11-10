@@ -43,7 +43,7 @@ class App extends Component {
       this.state.selectedcategory ='all';
     }
     return (
-      <div>
+      <div className="bg-gray-100 min-h-screen">
         <HashRouter>
         <Navigation />
           <Route path="/" exact={true} component={About} />
