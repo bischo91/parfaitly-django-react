@@ -5,6 +5,8 @@ import Navigation from "./components/Navigation";
 import About from "./routes/About";
 import Recipe from "./routes/Recipe";
 import RecipeDetail from "./routes/RecipeDetail";
+import Footer from "./components/Footer";
+
 
 import bootstrap from "bootstrap";
 
@@ -43,7 +45,7 @@ class App extends Component {
       this.state.selectedcategory ='all';
     }
     return (
-      <div className="bg-gray-100 min-h-screen">
+      <div className="bg-gray-100 h-screen -top-12 relative">
         <HashRouter>
         <Navigation />
           <Route path="/" exact={true} component={About} />

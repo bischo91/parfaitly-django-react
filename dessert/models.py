@@ -9,6 +9,7 @@ class Dessert(models.Model):
         ('Bread', 'Bread'),
     )
     title = models.CharField(max_length=100)
+    description = models.CharField(max_length=10000000)
     category = models.CharField(max_length=100, choices=DESSERT_TYPE)
     ingredients = models.CharField(max_length=10000)
     steps = models.CharField(max_length=10000000)

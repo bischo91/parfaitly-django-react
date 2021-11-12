@@ -4,7 +4,8 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        IrishGover: ["Irish Grover", "cursive"],
+        Lobster: ["Lobster", "cursive"],
+        LobsterTwo: ["Lobster Two", "cursive"],
       },
     },
   },

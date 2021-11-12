@@ -2,6 +2,7 @@ import React from "react";
 import Recipe from "../components/RecipeRead";
 import profile_pic from "../images/profile.png";
 import profile_animated from "../images/profile_animated.png";
+import Footer from "../components/Footer";
 
 function flipimg(){
   profileimg.classList.toggle('flipped');
@@ -11,7 +12,7 @@ function flipimg(){
 function About(props){
     return (
       <div>
-        <div className="flip -mt-20">
+        <div className="flip relative top-10 z-40">
           <div id="profileimg"
             className="flip-image"
             onMouseOver={flipimg}
@@ -20,7 +21,7 @@ function About(props){
             <img src={profile_pic} alt="" className="profile-back profile-img"/>
           </div>
         </div>
-        <div className="relative top-80 mt-12 block justify-around">
+        <div className="h-full relative top-96 mt-12 block justify-around">
           <p className="font-mono text-center text-gray-600">
             Hello World! <br></br>
             I'm Brian.<br></br>
@@ -28,6 +29,7 @@ function About(props){
             This is a demo website.
           </p>
         </div>
+        <Footer/>
       </div>
     )
 }

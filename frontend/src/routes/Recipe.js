@@ -3,6 +3,8 @@ import RecipeRead from "../components/RecipeRead";
 import { Link, HashRouter, Route } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import InfiniteScroll from 'react-infinite-scroll-component';
+import Footer from "../components/Footer";
+
 
 class Recipe extends React.Component{
   constructor(props) {
@@ -22,6 +24,7 @@ class Recipe extends React.Component{
   fetchData = () => {
     if (this.state.scrollindex.length >= this.state.filtereddata.length){
       this.setState({ hasMore: false });
+      console.log('fetchdata, but hasMore is false')
       return;
     }
      // a fake async api call like which sends
@@ -29,7 +32,7 @@ class Recipe extends React.Component{
        this.setState({
          scrollindex: this.state.scrollindex.concat(Array.from({ length: 1 })),
          loaded:false,
-     })
+     });
        console.log('fetchdata');
        console.log(this.state);
      }, 2000);
@@ -87,9 +90,9 @@ class Recipe extends React.Component{
         uniquecategory.push(this.state.data[i].category)
         subnav.push(<li key={i}>
           <Link
-            className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800"
+            className="flex flex-row items-center h-12 transform hover:translate-x-4 transition-transform ease-in duration-300 text-gray-500 hover:text-gray-800"
             to={"#/"+this.state.data[i].category}>
-            <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400"><i class="bx bx-home"></i></span>
+            <span className="inline-flex items-center justify-center h-12 w-6 text-lg text-gray-400"><i class="bx bx-home"></i></span>
             <span className="text-sm font-medium">
               {this.state.data[i].category}
             </span>
@@ -98,28 +101,28 @@ class Recipe extends React.Component{
         }
       }
     return (
-      <div className="flex flex-row container">
-        <div className="flex flex-col w-56 bg-white rounded-r-3xl overflow-hidden">
-        <ul className="flex flex-col py-4">
-          {subnav}
-        </ul>
+      <div className="bg-gray-100 min-h-max relative top-20 flex flex-row">
+        <div className="flex flex-col w-full h-full">
+          <ul className="flex flex-col py-4 fixed top-14 bg-white rounded-br-3xl min-w-max max-w-xs w-1/4">
+            {subnav}
+          </ul>
         </div>
         <InfiniteScroll
           dataLength={this.state.scrollindex.length} //This is important field to render the next data
           next={this.fetchData}
           hasMore={this.state.hasMore}
           loader={
-            <div class="flex items-center justify-center space-x-10 animate-pulse">
+            <div class="relative bottom-5 w-window bg-gray-100 flex items-center justify-center space-x-10 animate-pulse">
               <div class="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
               <div class="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
               <div class="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
             </div>
           }
           endMessage={
-            <hr />
+            <div></div>
           }
           style={{oveflow:"hidden !important"}}
-          className=""
+          className="w-full relative top-14 z-40"
         >
           <div className="overflow-hidden">
               {
@@ -127,6 +130,7 @@ class Recipe extends React.Component{
                     <RecipeRead
                     key = {item.id}
                     id = {item.id}
+                    description = {item.description}
                     title = {item.title}
                     category = {item.category}
                     ingredients = {item.ingredients}
@@ -138,6 +142,9 @@ class Recipe extends React.Component{
               }
             </div>
           </InfiniteScroll>
+          <div className="bg-gray-100 absolute -bottom-20 w-full flex h-20">
+            <Footer/>
+          </div>
         </div>
     );
   }

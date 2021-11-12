@@ -14,7 +14,7 @@ function navdisappear(){
 
 function Navigation(){
     return (
-      <nav className="bg-white shadow dark:bg-gray-800">
+      <nav className="z-50 top-0 fixed w-full bg-white shadow dark:bg-gray-800">
         <div
           className="
             container

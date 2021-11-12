@@ -1,6 +1,7 @@
 import React from "react";
 import { Link, Route } from "react-router-dom"
 import Breadcrumb from 'react-bootstrap/Breadcrumb'
+import Footer from "../components/Footer";
 
 class RecipeDetail extends React.Component{
   componentDidMount(){
@@ -14,7 +15,7 @@ class RecipeDetail extends React.Component{
       const { location } = this.props;
 
       return (
-        <div className="container w-full p-4 mx-auto">
+        <div className="w-full top-28 relative bg-gray-100">
             <ol className="list-reset flex text-grey-dark">
               <li><a href="#/recipe" className="font-bold">
                 Recipe
@@ -52,7 +53,10 @@ class RecipeDetail extends React.Component{
                     .map(str => <li className="pb-2 lg:pb-4">{str}</li>)
                     }
                 </ol>
+              </div>
             </div>
+            <div className="bg-gray-100 absolute -bottom-20 w-full flex h-20">
+              <Footer/>
             </div>
         </div>
         );

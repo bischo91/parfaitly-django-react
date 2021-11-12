@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Irish+Grover&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&display=swap');
 
 @import "tailwindcss/base";
 @import "tailwindcss/components";
@@ -54,5 +54,9 @@
     margin-right: 50%;
     margin-top: 5em;
     left:-7.5em;
+  }
+
+  #app{
+    max-height: 0px;
   }
 }

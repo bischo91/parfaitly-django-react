@@ -25,8 +25,10 @@ SECRET_KEY = 'django-insecure-8y1)(%-wiccr%q+_09dy&+6_4&pu6^rbmto!fzwf@5u3lt20zf
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = [
+    '192.168.0.228',
+    '127.0.0.1',
+]
 
 # Application definition
 
@@ -82,7 +84,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'parfaitly.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
@@ -111,7 +112,6 @@ AUTH_PASSWORD_VALIDATORS = [
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
 ]
-
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
