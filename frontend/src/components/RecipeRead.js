@@ -7,6 +7,8 @@ function RecipeRead( {id, description, title, category, ingredients, steps, img_
 
       <div className="h-full ml-10 mb-12 space-y-4">
         <Link className="text-decoration-none"
+            >
+          <h2 className="text-5xl p-2 font-LobsterTwo inline-block"
             to={{
             pathname:`/recipe/${title.replace(/\s+/g,'')}`,
             state: {
@@ -19,29 +21,29 @@ function RecipeRead( {id, description, title, category, ingredients, steps, img_
                 img_src,
                 created_at
               }
-            }}>
-          <h2 className="text-5xl p-2 font-LobsterTwo">{title}</h2>
+            }}>{title}</h2>
         </Link>
         <p className="h-full p-2 m-2 font-Lobster">{description}</p>
         <Link className="text-decoration-none"
-          to={{
-          pathname:`/recipe/${title.replace(/\s+/g,'')}`,
-          state: {
-              id,
-              title,
-              description,
-              category,
-              ingredients,
-              steps,
-              img_src,
-              created_at
-            }
-          }}>
+          >
           <img
             src={img_src}
             alt={title}
             title={title}
-            className="h-96 m-4"></img>
+            className="h-96 m-4 inline-block"
+            to={{
+            pathname:`/recipe/${title.replace(/\s+/g,'')}`,
+            state: {
+                id,
+                title,
+                description,
+                category,
+                ingredients,
+                steps,
+                img_src,
+                created_at
+              }
+            }}></img>
         </Link>
       </div>
     );

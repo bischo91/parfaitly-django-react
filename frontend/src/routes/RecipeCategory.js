@@ -13,7 +13,7 @@ function RecipeCatory(props){
                  <Link className="nav-link" to="#/Drinks" onClick={() => this.setState({selectedcategory:"Drinks"})}>Drinks</Link>
                </li>
                <li className="nav-item">
-                 <Link className="nav-link" to="#/Cakes" onClick={() => this.setState({selectedcategory:"Cakes"})}>Cakes</Link>
+                 <Link className="nav-link" to="#/Cakes" onClick={() => this.setState({selectedcategory:"Cakessss"})}>Cakes</Link>
                </li>
              </nav>
           </div>
