@@ -45,7 +45,7 @@ class App extends Component {
       this.state.selectedcategory ='all';
     }
     return (
-      <div className="bg-gray-100 h-screen -top-12 relative">
+      <div className="bg-primary h-screen -top-12 relative">
         <HashRouter>
         <Navigation />
           <Route path="/" exact={true} component={About} />

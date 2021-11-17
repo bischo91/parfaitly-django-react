@@ -19,22 +19,21 @@ class Recipe extends React.Component{
     };
   }
 
+// fetchData: load more recipes with infinite scroll
   fetchData = () => {
+    // if number of recipes are equal or more than filtered data, hasMore is set to false
     if (this.state.scrollindex.length >= this.state.filtereddata.length){
       this.setState({
         hasMore: false, });
-      console.log('fetchdata, but hasMore is false')
       return;
     }
-     // a fake async api call like which sends
+     // showing more recipe with infinite scroll
      setTimeout(() => {
        this.setState({
          scrollindex: this.state.scrollindex.concat(Array.from({ length: 1 })),
          hasMore:true,
-     });
-       console.log('fetchdata');
-       console.log(this.state);
-     }, 2000);
+        });
+      }, 1500);
    }
 
   componentDidMount() {
@@ -52,17 +51,18 @@ class Recipe extends React.Component{
           this.setState(() => {
             return {
               data,
+              // define selected category
               selectedcategory:window.location.hash.split('/')[2],
             };
           });
           if (window.location.hash.split('/')[2] === undefined | '') {
+            // if no selected category, show all recipes (filtered data is all the data)
             this.setState({filtereddata: this.state.data})
           } else {
+            // map selected category using filtered data
             this.setState({filtereddata: this.state.data.filter((item) => item.category === window.location.hash.split('/')[2])})
           }
         })
-      console.log('fetch');
-      console.log(this.state);
       }
 
     componentWillReceiveProps(){
@@ -72,8 +72,6 @@ class Recipe extends React.Component{
       } else {
         this.setState({filtereddata: this.state.data.filter((item) => item.category === window.location.hash.split('/')[2])})
       }
-      console.log('receiveprops');
-      console.log(this.state);
     }
 
   render(){
@@ -82,11 +80,8 @@ class Recipe extends React.Component{
     } else{
       this.state.hasMore = true;
     }
-    const { isLoading } = this.state;
     var uniquecategory=[];
     var subnav=[];
-    console.log('render');
-    console.log(this.state);
     for (var i=0; i<this.state.data.length; i++) {
       if (!uniquecategory.includes(this.state.data[i].category))
         {
@@ -109,51 +104,53 @@ class Recipe extends React.Component{
         }
       }
     return (
-      <div className="bg-gray-100 min-h-max relative top-20 flex flex-row">
-        <div className="flex flex-col w-full h-full">
-          <ul className="flex flex-col py-4 fixed top-14 bg-white rounded-br-3xl min-w-max max-w-xs w-1/4">
-            {subnav}
-          </ul>
-        </div>
-        <InfiniteScroll
-          dataLength={this.state.scrollindex.length} //This is important field to render the next data
-          next={()=> this.fetchData()}
-          hasMore={this.state.hasMore}
-          loader={
-            <div className="relative bottom-5 w-window bg-gray-100 flex items-center justify-center space-x-10 animate-pulse">
-              <div className="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
-              <div className="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
-              <div className="my-8 w-4 h-4 bg-red-900 rounded-full"></div>
-            </div>
-          }
-          endMessage={
-            <div></div>
-          }
-          style={{oveflow:"hidden !important"}}
-          className="w-full relative top-14 z-40"
-        >
-          <div className="overflow-hidden">
-              {
-                  this.state.filtereddata.slice(0, this.state.scrollindex.length).map((item, index) => (
-                    <RecipeRead
-                    key = {item.id}
-                    id = {item.id}
-                    description = {item.description}
-                    title = {item.title}
-                    category = {item.category}
-                    ingredients = {item.ingredients}
-                    steps = {item.steps}
-                    img_src = {item.img_src}
-                    created_at = {item.created_at}
-                    />
-                ))
-              }
-            </div>
+      <div className="bg-primary min-h-max relative top-20 flex flex-row">
+        <div className="container flex min-w-full">
+          <div className="flex flex-col w-2/6 h-full">
+            <ul className="flex flex-col py-4 fixed top-14 bg-secondary rounded-br-3xl min-w-max max-w-xs w-1/4">
+              {subnav}
+            </ul>
+          </div>
+        <div className="w-4/6">
+          <InfiniteScroll
+            dataLength={this.state.scrollindex.length} //This is important field to render the next data
+            next={()=> this.fetchData()}
+            hasMore={this.state.hasMore}
+            loader={
+              <div className="relative bottom-5 w-window bg-primary flex items-center justify-center space-x-10 animate-pulse">
+                <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+              </div>
+            }
+            endMessage={
+              <div></div>
+            }
+            style={{oveflow:"hidden !important"}}
+            className="w-full relative top-14 z-40"
+          >
+            <div className="overflow-hidden w-full">
+                {
+                    this.state.filtereddata.slice(0, this.state.scrollindex.length).map((item, index) => (
+                      <RecipeRead
+                      key = {item.id}
+                      id = {item.id}
+                      description = {item.description}
+                      title = {item.title}
+                      category = {item.category}
+                      ingredients = {item.ingredients}
+                      steps = {item.steps}
+                      img_src = {item.img_src}
+                      created_at = {item.created_at}
+                      />
+                  ))
+                }
+              </div>
           </InfiniteScroll>
-          <div className="bg-gray-100 absolute -bottom-20 w-full flex h-20">
-            <Footer/>
           </div>
         </div>
+          <div className="bg-primary absolute -bottom-20 w-full flex h-20">
+            <Footer/>
+          </div>
+      </div>
     );
   }
 }

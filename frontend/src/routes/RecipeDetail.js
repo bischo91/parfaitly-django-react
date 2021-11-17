@@ -15,7 +15,7 @@ class RecipeDetail extends React.Component{
       const { location } = this.props;
 
       return (
-        <div className="w-full top-28 relative bg-gray-100">
+        <div className="w-full top-28 relative bg-primary">
             <ol className="list-reset flex text-grey-dark">
               <li><a href="#/recipe" className="font-bold">
                 Recipe
@@ -55,7 +55,7 @@ class RecipeDetail extends React.Component{
                 </ol>
               </div>
             </div>
-            <div className="bg-gray-100 absolute -bottom-20 w-full flex h-20">
+            <div className="bg-primary absolute -bottom-20 w-full flex h-20">
               <Footer/>
             </div>
         </div>
