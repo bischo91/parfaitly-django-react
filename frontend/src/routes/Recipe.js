@@ -89,14 +89,14 @@ class Recipe extends React.Component{
         var test = this.state.data[i].category
         subnav.push(<li key={i}>
           <Link
-            className="flex flex-row items-center h-12 transform hover:translate-x-4 transition-transform ease-in duration-300 text-gray-500 hover:text-gray-800"
+            className="flex flex-row items-center h-12 transform hover:translate-x-4 transition-transform ease-in text-lg duration-300 text-primary hover:text-secondary"
             to={"#/"+this.state.data[i].category}
             onClick={()=> this.setState( {
                   scrollindex: Array.from( {length: 3}),
                 })}
             >
             <span className="inline-flex items-center justify-center h-12 w-6 text-lg text-gray-400"><i className="bx bx-home"></i></span>
-            <span className="text-sm font-medium">
+            <span className="font-medium">
               {this.state.data[i].category}
             </span>
           </Link>
@@ -107,7 +107,7 @@ class Recipe extends React.Component{
       <div className="bg-primary min-h-max relative top-20 flex flex-row">
         <div className="container flex min-w-full">
           <div className="flex flex-col w-2/6 h-full">
-            <ul className="flex flex-col py-4 fixed top-14 bg-secondary rounded-br-3xl min-w-max max-w-xs w-1/4">
+            <ul className="flex flex-col py-4 fixed top-14 bg-secondary rounded-br-3xl min-w-max max-w-xs w-1/4 font-LobsterTwo">
               {subnav}
             </ul>
           </div>
@@ -125,7 +125,7 @@ class Recipe extends React.Component{
               <div></div>
             }
             style={{oveflow:"hidden !important"}}
-            className="w-full relative top-14 z-40"
+            className="w-full relative top-14 z-40 right-6"
           >
             <div className="overflow-hidden w-full">
                 {

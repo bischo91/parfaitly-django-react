@@ -22,7 +22,7 @@ function About(props){
           </div>
         </div>
         <div className="h-full relative top-96 mt-12 block justify-around">
-          <p className="font-mono text-center text-gray-600">
+          <p className="font-mono text-center text-secondary">
             Hello World! <br></br>
             I'm Brian.<br></br>
             I'm an enthusiastic developer and an engineer<br></br>

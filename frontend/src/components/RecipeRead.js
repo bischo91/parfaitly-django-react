@@ -20,11 +20,12 @@ function RecipeRead( {id, description, title, category, ingredients, steps, img_
                   created_at
                 }
               }}>
-            <h2 className="text-5xl p-2 font-LobsterTwo inline-block"
+            <h2 className="text-5xl p-2 font-LobsterTwo inline-block text-primary"
               >{title}</h2>
           </Link>
-          <p className="h-full w-5/6 p-2 m-2 font-Lobster">{description}</p>
-          <Link className="text-decoration-none h-full"
+          <p className="h-full w-5/6 p-2 m-2 font-Lobster text-secondary">{description}</p>
+          <div className="container flex">
+          <Link className="mx-auto h-full"
             to={{
             pathname:`/recipe/${title.replace(/\s+/g,'')}`,
             state: {
@@ -42,9 +43,10 @@ function RecipeRead( {id, description, title, category, ingredients, steps, img_
               src={img_src}
               alt={title}
               title={title}
-              className="max-h-36em w-5/6 object-center object-scale-down m-4 inline-block">
+              className="max-h-36em w-5/6 object-scale-down">
             </img>
           </Link>
+          </div>
         </div>
     );
 }

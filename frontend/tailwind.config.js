@@ -5,13 +5,19 @@ module.exports = {
     backgroundColor: theme => ({
       ...theme('colors'),
       'primary': '#d9f0f2',
-      'secondary': '#8dd2d8',
+      'secondary': '#eaf6fb',
         }
-      ),
+    ),
+    textColor: {
+      'primary': '#2286aa',
+      'secondary': '#15546a',
+    },
     extend: {
       fontFamily: {
         Lobster: ["Lobster", "cursive"],
         LobsterTwo: ["Lobster Two", "cursive"],
+        BebasNeue: ["Bebas Neue", "cursive"],
+        BalsamiqSans: ["Balsamiq Sans", "cursive"],
       },
     },
   },

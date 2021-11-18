@@ -16,22 +16,23 @@ class RecipeDetail extends React.Component{
 
       return (
         <div className="w-full top-28 relative bg-primary">
-            <ol className="list-reset flex text-grey-dark">
-              <li><a href="#/recipe" className="font-bold">
+          <div className="container m-auto">
+            <ol className="my-2 mx-4 flex text-sm text-secondary font-BebasNeue">
+              <li><a href="#/recipe" className="font-semibold">
                 Recipe
               </a></li>
-              <li><span className="mx-2">/</span></li>
-              <li><a href={"#/recipe#/"+location.state.category} className="font-bold">
+              <li><span className="mx-1">/</span></li>
+              <li><a href={"#/recipe#/"+location.state.category} className="font-semibold">
                 {location.state.category}
-                </a></li>
-              <li><span class="mx-2">/</span></li>
-              <li className="font-bold">
+              </a></li>
+              <li><span class="mx-1">/</span></li>
+              <li className="font-semibold">
                 {location.state.title}
               </li>
             </ol>
-            <div className="mt-2 mb-2 4xl text-pink-900">{location.state.title}</div>
-            <div className='my-2 2xl text-pink-500	'>Ingredients:</div>
-            <ol className="p-2 lg:grid lg:grid-cols-2 lg:mb-12 gap-2 text-pink-500">
+            <div className="mx-8 my-8 text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-primary font-LobsterTwo">{location.state.title}</div>
+            <div className="mx-8 my-4 text-md sm:text-xl md:text-2xl font-semibold text-secondary font-BebasNeue">Ingredients:</div>
+            <ol className="mx-8 m-4 text-md font-BebasNeue text-secondary lg:grid lg:grid-cols-2 lg:mb-12 gap-2">
               {location.state.ingredients
                 .replaceAll('* ', '-* ')
                 .split('-')
@@ -39,15 +40,15 @@ class RecipeDetail extends React.Component{
                 .map(str => <div><li>{("-"+str).replace("-*", "*")}</li></div>)
               }</ol>
             <div className="lg:grid lg:grid-cols-2 gap-4">
-              <div>
+              <div className="flex object-center">
                 <img
                   src={location.state.img_src}
                   alt={location.state.title}
                   title={location.state.title}
-                  className="mx-auto my-4 w-full sm:w-5/6 md:w-4/6">
+                  className="mx-auto my-4 w-5/6 object-scale-down max-h-36em">
                 </img>
               </div>
-              <div className="text-pink-800">
+              <div className="text-lg text-secondary font-BebasNeue">
                 <ol>{location.state.steps
                     .replace(/step./gi,'*temp*').split('*temp*')
                     .map(str => <li className="pb-2 lg:pb-4">{str}</li>)
@@ -55,6 +56,7 @@ class RecipeDetail extends React.Component{
                 </ol>
               </div>
             </div>
+          </div>
             <div className="bg-primary absolute -bottom-20 w-full flex h-20">
               <Footer/>
             </div>

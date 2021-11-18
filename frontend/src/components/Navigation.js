@@ -30,11 +30,10 @@ function Navigation(){
                 className="
                   text-xl
                   font-bold
-                  text-gray-800
-                  dark:text-white
+                  text-primary
+                  hover:text-secondary
                   md:text-2xl
-                  hover:text-gray-700
-                  dark:hover:text-gray-300
+                  font-LobsterTwo
                 "
                 to="/"
                 onClick={navdisappear}
@@ -46,12 +45,9 @@ function Navigation(){
               <button
                 type="button"
                 className="
-                  text-gray-500
-                  dark:text-gray-200
-                  hover:text-gray-600
-                  dark:hover:text-gray-400
-                  focus:outline-none focus:text-gray-600
-                  dark:focus:text-gray-400
+                  text-primary
+                  hover:text-secondary
+                  focus:outline-none focus:text-secondary
                 "
                 aria-label="toggle menu"
                 onClick={togglebutton}
@@ -70,11 +66,10 @@ function Navigation(){
               <Link
                 className="
                   my-1
-                  text-gray-700
-                  dark:text-gray-200
-                  hover:text-indigo-500
-                  dark:hover:text-indigo-400
+                  text-primary
+                  hover:text-secondary
                   md:mx-4 md:my-0
+                  font-LobsterTwo
                 "
                 to="/"
                 onClick={navdisappear}
@@ -84,11 +79,10 @@ function Navigation(){
               <Link
                 className="
                   my-1
-                  text-gray-700
-                  dark:text-gray-200
-                  hover:text-indigo-500
-                  dark:hover:text-indigo-400
+                  text-primary
+                  hover:text-secondary
                   md:mx-4 md:my-0
+                  font-LobsterTwo
                 "
                 to="/recipe"
                 onClick={navdisappear}
