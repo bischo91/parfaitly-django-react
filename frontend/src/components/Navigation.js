@@ -14,7 +14,7 @@ function navdisappear(){
 
 function Navigation(){
     return (
-      <nav className="z-50 top-0 fixed w-full bg-secondary shadow dark:bg-white">
+      <nav className="z-50 top-0 fixed w-full bg-secondary shadow">
         <div
           className="
             container
@@ -38,7 +38,7 @@ function Navigation(){
                 to="/"
                 onClick={navdisappear}
                 >
-                Parfaitly
+                Parfaitlyme
               </Link>
             </div>
             <div className="flex md:hidden">
@@ -67,6 +67,8 @@ function Navigation(){
                 className="
                   my-1
                   text-primary
+                  text-lg
+                  font-bold
                   hover:text-secondary
                   md:mx-4 md:my-0
                   font-LobsterTwo
@@ -80,6 +82,8 @@ function Navigation(){
                 className="
                   my-1
                   text-primary
+                  text-lg
+                  font-bold
                   hover:text-secondary
                   md:mx-4 md:my-0
                   font-LobsterTwo

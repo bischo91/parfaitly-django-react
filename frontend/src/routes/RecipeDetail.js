@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 class RecipeDetail extends React.Component{
   componentDidMount(){
       const { location, history } = this.props;
+      document.title = location.state.title;
+      window.scrollTo(0, 0)
       if (location.state === undefined){
           history.push("/");
       }
@@ -17,7 +19,7 @@ class RecipeDetail extends React.Component{
       return (
         <div className="w-full top-28 relative bg-primary">
           <div className="container m-auto">
-            <ol className="my-2 mx-4 flex text-sm text-secondary font-BebasNeue">
+            <ol className="my-2 mx-4 flex text-sm text-secondary font-BalsamiqSans">
               <li><a href="#/recipe" className="font-semibold">
                 Recipe
               </a></li>
@@ -30,9 +32,9 @@ class RecipeDetail extends React.Component{
                 {location.state.title}
               </li>
             </ol>
-            <div className="mx-8 my-8 text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-primary font-LobsterTwo">{location.state.title}</div>
-            <div className="mx-8 my-4 text-md sm:text-xl md:text-2xl font-semibold text-secondary font-BebasNeue">Ingredients:</div>
-            <ol className="mx-8 m-4 text-md font-BebasNeue text-secondary lg:grid lg:grid-cols-2 lg:mb-12 gap-2">
+            <div className="mx-8 lg:my-8 my-2 text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-primary font-LobsterTwo">{location.state.title}</div>
+            <div className="mx-8 mt-4 text-sm sm:text-md md:text-xl font-semibold text-secondary font-BebasNeue">Ingredients:</div>
+            <ol className="mx-8 text-sm sm:text-md font-OpenSansCondensed text-secondary lg:grid lg:grid-cols-2 lg:mb-12 gap-2">
               {location.state.ingredients
                 .replaceAll('* ', '-* ')
                 .split('-')
@@ -48,7 +50,7 @@ class RecipeDetail extends React.Component{
                   className="mx-auto my-4 w-5/6 object-scale-down max-h-36em">
                 </img>
               </div>
-              <div className="text-lg text-secondary font-BebasNeue">
+              <div className="m-auto mx-8 text-lg md:text-md text-secondary font-OpenSansCondensed">
                 <ol>{location.state.steps
                     .replace(/step./gi,'*temp*').split('*temp*')
                     .map(str => <li className="pb-2 lg:pb-4">{str}</li>)

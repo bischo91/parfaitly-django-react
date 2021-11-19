@@ -18,6 +18,7 @@ module.exports = {
         LobsterTwo: ["Lobster Two", "cursive"],
         BebasNeue: ["Bebas Neue", "cursive"],
         BalsamiqSans: ["Balsamiq Sans", "cursive"],
+        OpenSansCondensed: ["Open Sans Condensed", "sans-serif"],
       },
     },
   },

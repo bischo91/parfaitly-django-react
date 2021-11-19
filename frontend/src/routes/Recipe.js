@@ -37,6 +37,7 @@ class Recipe extends React.Component{
    }
 
   componentDidMount() {
+    document.title = "Recipe"
     fetch("api/dessert")
       .then(response => {
         if (response.status > 400) {
@@ -69,8 +70,10 @@ class Recipe extends React.Component{
       this.setState({selectedcategory:window.location.hash.split('/')[2]})
       if (window.location.hash.split('/')[2] === undefined | '') {
         this.setState({filtereddata: this.state.data})
+
       } else {
         this.setState({filtereddata: this.state.data.filter((item) => item.category === window.location.hash.split('/')[2])})
+
       }
     }
 
@@ -105,7 +108,7 @@ class Recipe extends React.Component{
       }
     return (
       <div className="bg-primary min-h-max relative top-20 flex flex-row">
-        <div className="container flex min-w-full">
+        <div className="container h-full min-h-screen flex min-w-full">
           <div className="flex flex-col w-2/6 h-full">
             <ul className="flex flex-col py-4 fixed top-14 bg-secondary rounded-br-3xl min-w-max max-w-xs w-1/4 font-LobsterTwo">
               {subnav}
@@ -147,9 +150,9 @@ class Recipe extends React.Component{
           </InfiniteScroll>
           </div>
         </div>
-          <div className="bg-primary absolute -bottom-20 w-full flex h-20">
-            <Footer/>
-          </div>
+        <div className="bg-primary absolute -bottom-20 w-full flex h-20">
+          <Footer/>
+        </div>
       </div>
     );
   }

@@ -9,7 +9,9 @@ function flipimg(){
 }
 
 
+
 function About(props){
+    document.title = "Parfaitlyme"
     return (
       <div>
         <div className="flip relative top-10 z-40">
@@ -22,7 +24,7 @@ function About(props){
           </div>
         </div>
         <div className="h-full relative top-96 mt-12 block justify-around">
-          <p className="font-mono text-center text-secondary">
+          <p className="font-mono text-center text-secondary text-lg">
             Hello World! <br></br>
             I'm Brian.<br></br>
             I'm an enthusiastic developer and an engineer<br></br>
