@@ -23,7 +23,7 @@ function About(props){
             <img src={profile_pic} alt="" className="profile-back profile-img"/>
           </div>
         </div>
-        <div className="h-full relative top-96 mt-12 block justify-around">
+        <div className="bg-primary h-full relative top-96 block justify-around">
           <p className="font-mono text-center text-secondary text-lg">
             Hello World! <br></br>
             I'm Brian.<br></br>
@@ -31,7 +31,6 @@ function About(props){
             This is a demo website.
           </p>
         </div>
-        <Footer/>
       </div>
     )
 }

@@ -45,13 +45,16 @@ class App extends Component {
       this.state.selectedcategory ='all';
     }
     return (
-      <div className="bg-primary min-h-screen h-full -top-12 relative">
-        <HashRouter>
-        <Navigation />
-          <Route path="/" exact={true} component={About} />
-          <Route path="/recipe" exact={true} component={Recipe} />
-          <Route path="/recipe/:category" component={RecipeDetail}/>
-        </HashRouter>
+      <div>
+        <div className="bg-primary flex flex-col h-full min-h-screen">
+          <HashRouter>
+          <Navigation />
+            <Route path="/" exact={true} component={About} />
+            <Route path="/recipe" exact={true} component={Recipe} />
+            <Route path="/recipe/:category" component={RecipeDetail}/>
+          </HashRouter>
+        </div>
+        <Footer />
       </div>
     );
   }

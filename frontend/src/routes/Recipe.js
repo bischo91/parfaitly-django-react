@@ -107,51 +107,48 @@ class Recipe extends React.Component{
         }
       }
     return (
-      <div className="bg-primary min-h-max relative top-20 flex flex-row">
+      <div className="bg-primary min-h-max relative top-8 flex flex-row mb-16">
         <div className="container h-full min-h-screen flex min-w-full">
           <div className="flex flex-col w-2/6 h-full">
             <ul className="flex flex-col py-4 fixed top-14 bg-secondary rounded-br-3xl min-w-max max-w-xs w-1/4 font-LobsterTwo">
               {subnav}
             </ul>
           </div>
-        <div className="w-4/6">
-          <InfiniteScroll
-            dataLength={this.state.scrollindex.length} //This is important field to render the next data
-            next={()=> this.fetchData()}
-            hasMore={this.state.hasMore}
-            loader={
-              <div className="relative bottom-5 w-window bg-primary flex items-center justify-center space-x-10 animate-pulse">
-                <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
-              </div>
-            }
-            endMessage={
-              <div></div>
-            }
-            style={{oveflow:"hidden !important"}}
-            className="w-full relative top-14 z-40 right-6"
-          >
-            <div className="overflow-hidden w-full">
-                {
-                    this.state.filtereddata.slice(0, this.state.scrollindex.length).map((item, index) => (
-                      <RecipeRead
-                      key = {item.id}
-                      id = {item.id}
-                      description = {item.description}
-                      title = {item.title}
-                      category = {item.category}
-                      ingredients = {item.ingredients}
-                      steps = {item.steps}
-                      img_src = {item.img_src}
-                      created_at = {item.created_at}
-                      />
-                  ))
-                }
-              </div>
-          </InfiniteScroll>
-          </div>
-        </div>
-        <div className="bg-primary absolute -bottom-20 w-full flex h-20">
-          <Footer/>
+          <div className="w-4/6">
+            <InfiniteScroll
+              dataLength={this.state.scrollindex.length} //This is important field to render the next data
+              next={()=> this.fetchData()}
+              hasMore={this.state.hasMore}
+              loader={
+                <div className="relative bottom-5 w-window bg-primary h-full flex items-center justify-center space-x-10 animate-pulse">
+                  <div className="lds-spinner"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+                </div>
+              }
+              endMessage={
+                <div></div>
+              }
+              style={{oveflow:"hidden !important"}}
+              className="mb-12 w-full relative top-14 right-6"
+            >
+              <div className="overflow-hidden w-full">
+                  {
+                      this.state.filtereddata.slice(0, this.state.scrollindex.length).map((item, index) => (
+                        <RecipeRead
+                        key = {item.id}
+                        id = {item.id}
+                        description = {item.description}
+                        title = {item.title}
+                        category = {item.category}
+                        ingredients = {item.ingredients}
+                        steps = {item.steps}
+                        img_src = {item.img_src}
+                        created_at = {item.created_at}
+                        />
+                    ))
+                  }
+                </div>
+            </InfiniteScroll>
+            </div>
         </div>
       </div>
     );

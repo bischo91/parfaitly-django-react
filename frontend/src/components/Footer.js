@@ -4,11 +4,10 @@ import PropTypes from "prop-types";
 
 function Footer(props){
     return (
-      <div className="bg-secondary shadow flex w-full absolute bottom-0">
+      <div className="bg-secondary shadow bottom-0 w-full flex fixed z-50">
         <p className="m-auto my-2 font-mono text-sm text-primary">
-          This is a test footer.
-        </p>
-      </div>
+          This is a test footer.</p>
+        </div>
     );
 }
 
