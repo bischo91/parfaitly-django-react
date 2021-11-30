@@ -38,6 +38,7 @@ class Recipe extends React.Component{
 
   componentDidMount() {
     document.title = "Recipe"
+    window.scrollTo(0, 0)
     fetch("api/dessert")
       .then(response => {
         if (response.status > 400) {
@@ -67,8 +68,9 @@ class Recipe extends React.Component{
       }
 
     componentWillReceiveProps(){
+      window.scrollTo(0, 0)
       this.setState({selectedcategory:window.location.hash.split('/')[2]})
-      if (window.location.hash.split('/')[2] === undefined | '') {
+      if (window.location.hash.split('/')[2] === undefined | "") {
         this.setState({filtereddata: this.state.data})
 
       } else {
@@ -85,6 +87,25 @@ class Recipe extends React.Component{
     }
     var uniquecategory=[];
     var subnav=[];
+    var BreadCrumb;
+    if (this.state.selectedcategory !== undefined | "") {
+      BreadCrumb = <ol className="relative right-8 top-8 my-2 mx-4 flex text-sm text-secondary font-BalsamiqSans">
+        <li><a href="#/recipe" className="font-semibold">
+          Recipe
+        </a></li>
+        <li><span className="mx-1">/</span></li>
+        <li><a href={"#/recipe#/"+this.state.selectedcategory} className="font-semibold">
+          {this.state.selectedcategory}
+        </a></li>
+      </ol>
+    } else {
+      BreadCrumb = <ol className="relative right-8 top-8 my-2 mx-4 flex text-sm text-secondary font-BalsamiqSans">
+        <li><a href="#/recipe" className="font-semibold">
+          Recipe
+        </a></li>
+      </ol>
+    }
+
     for (var i=0; i<this.state.data.length; i++) {
       if (!uniquecategory.includes(this.state.data[i].category))
         {
@@ -115,6 +136,8 @@ class Recipe extends React.Component{
             </ul>
           </div>
           <div className="w-4/6">
+            {BreadCrumb}
+
             <InfiniteScroll
               dataLength={this.state.scrollindex.length} //This is important field to render the next data
               next={()=> this.fetchData()}
