@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 function RecipeRead( {id, description, title, category, ingredients, steps, img_src, created_at }){
     return (
 
-      <div className="h-full w-full mb-12 space-y-4">
+      <div className="h-full w-full mb-20 space-y-4">
           <Link className="text-decoration-none"
               to={{
               pathname:`/recipe/${title.replace(/\s+/g,'')}`,
