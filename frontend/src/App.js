@@ -16,32 +16,16 @@ class App extends Component {
       loaded: false,
       placeholder: "Loading",
     };
-
   }
 
   componentDidMount() {
-    fetch("api/dessert")
-      .then(response => {
-        if (response.status > 400) {
-          return this.setState(() => {
-            return { placeholder: "Something went wrong!" };
-          });
-        }
-        return response.json();
-      })
-      .then(data => {
-        this.setState(() => {
-          return {
-            data,
-            loaded: true,
-          };
-        });
-      });
+    // Chnage page title to Parfaitlyme
+    document.title = "Parfaitlyme"
+    // Scroll to stop when page loaded
+    window.scrollTo(0, 0)
   }
+
   render() {
-    const handleClick = () => {
-      this.state.selectedcategory ='all';
-    }
     return (
       <div>
         <div className="bg-primary flex flex-col h-full min-h-screen z-20">

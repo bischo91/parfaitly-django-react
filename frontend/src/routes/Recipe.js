@@ -110,7 +110,7 @@ class Recipe extends React.Component{
       </ol>
     } else {
       // No category selected
-      BreadCrumb = <ol className="relative right-8 top-8 my-2 mx-4 flex text-sm text-secondary font-BalsamiqSans">
+      BreadCrumb = <ol className="relative right-8 top-8 mt-2 mx-4 flex text-sm text-secondary font-BalsamiqSans">
         <li><a href="#/recipe" className="font-semibold">
           Recipe
         </a></li>

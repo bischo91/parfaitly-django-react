@@ -1,13 +1,17 @@
+/* Import tailwindcss */
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+/* Import Google fonts */
 @import url('https://fonts.googleapis.com/css2?family=Lobster&family=Lobster+Two&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
 
-@import "tailwindcss/base";
-@import "tailwindcss/components";
-@import "tailwindcss/utilities";
-
+/* Custom CSS style */
 @layer utilities {
+  /* Profil image style and filp properties */
   .flip .flip-image.flipped {
     transform:rotatey(-180deg);
     -ms-transform:rotatey(-180deg); /* IE 9 */
@@ -59,10 +63,7 @@
     left:-7.5em;
   }
 
-  #app{
-    max-height: 0px;
-  }
-
+  /* Loading sign style */
   .lds-spinner {
   color: #1a484c;
   display: inline-block;
@@ -142,9 +143,8 @@
     }
   }
 
-
+  /* Custom max height style */
   .max-h-36em {
     max-height: 36em;
   }
-
 }
