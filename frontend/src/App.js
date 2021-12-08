@@ -6,8 +6,6 @@ import About from "./routes/About";
 import Recipe from "./routes/Recipe";
 import RecipeDetail from "./routes/RecipeDetail";
 import Footer from "./components/Footer";
-
-
 import bootstrap from "bootstrap";
 
 class App extends Component {
@@ -46,7 +44,7 @@ class App extends Component {
     }
     return (
       <div>
-        <div className="bg-primary flex flex-col h-full min-h-screen">
+        <div className="bg-primary flex flex-col h-full min-h-screen z-20">
           <HashRouter>
           <Navigation />
             <Route path="/" exact={true} component={About} />

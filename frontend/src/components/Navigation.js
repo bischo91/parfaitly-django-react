@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import Recipe from "../routes/Recipe";
 
+
 function togglebutton(){
+  // When burger is clicked, navbar toggles to show/hide
   resultnav.classList.toggle('hidden');
 }
 
 function navdisappear(){
+  // Remove nav bar when a link is clicked
+  // if the nav bar is showing, the nav bar class will toggle to include 'hidden'.
   if (!resultnav.classList.contains('hidden')){
     resultnav.classList.toggle('hidden');
-  }
+  };
 }
 
 function Navigation(){
+  const navArea = useRef(null);
+  document.addEventListener("mousedown", function(event) {
+    if (!resultnav.classList.contains('hidden') && !navArea.current.contains(event.target)) {
+      resultnav.classList.toggle('hidden');
+    }});
+  // When everywhere except nav area is clicked, the nav bar changes to include 'hidden'
+
     return (
-      <nav className="z-50 top-0 fixed w-full bg-secondary shadow">
+      <nav ref={ navArea }className="z-50 top-0 fixed w-full bg-secondary shadow">
         <div
           className="
             container
