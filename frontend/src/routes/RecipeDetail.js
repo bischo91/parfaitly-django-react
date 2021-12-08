@@ -5,20 +5,19 @@ import Footer from "../components/Footer";
 
 class RecipeDetail extends React.Component{
   componentDidMount(){
-      const { location, history } = this.props;
+      const { location } = this.props;
+      // Change page title to recipe title
       document.title = location.state.title;
-      window.scrollTo(0, 0)
-      if (location.state === undefined){
-          history.push("/");
-      }
+      // Scroll to top
+      window.scrollTo(0, 0);
   }
 
   render() {
       const { location } = this.props;
-
       return (
         <div className="w-full top-16 relative bg-primary">
           <div className="container m-auto mb-16">
+            {/* BreadCrumb */}
             <ol className="my-2 mx-4 flex text-sm text-secondary font-BalsamiqSans">
               <li><a href="#/recipe" className="font-semibold">
                 Recipe
@@ -32,9 +31,18 @@ class RecipeDetail extends React.Component{
                 {location.state.title}
               </li>
             </ol>
-            <div className="mx-8 lg:my-8 my-2 text-xl sm:text-2xl md:text-3xl lg:text-5xl font-bold text-primary font-LobsterTwo">{location.state.title}</div>
-            <div className="mx-8 mt-4 text-sm sm:text-md md:text-xl font-semibold text-secondary font-BebasNeue">Ingredients:</div>
-            <ol className="mx-8 text-sm sm:text-md font-OpenSansCondensed text-secondary lg:grid lg:grid-cols-2 lg:mb-12 gap-2">
+            <div className="mx-8 lg:my-8 my-2 text-primary
+              text-xl sm:text-2xl md:text-3xl lg:text-5xl
+              font-bold font-LobsterTwo">{location.state.title}</div>
+            <div className="mx-8 mt-4 text-sm sm:text-md md:text-xl text-secondary
+              font-semibold font-BebasNeue">Ingredients:</div>
+            <ol className="mx-8 text-sm sm:text-md text-secondary
+              font-OpenSansCondensed lg:grid lg:grid-cols-2 lg:mb-12 gap-2">
+              {/* Format and list raw data for Ingredients.
+                The ingredients section is responsive.
+                Raw data have - symbol to list each ingredient,
+                and * is also used for heaing
+                 */}
               {location.state.ingredients
                 .replaceAll('* ', '-* ')
                 .split('-')
@@ -51,7 +59,11 @@ class RecipeDetail extends React.Component{
                 </img>
               </div>
               <div className="m-auto mx-8 text-lg md:text-md text-secondary font-OpenSansCondensed">
-                <ol>{location.state.steps
+                <ol>
+                  {/* Format and list raw data for Ingredients.
+                    Raw data have Step 1. to describe the steps.
+                    For the page, the word, Step, and . is removed*/}
+                  {location.state.steps
                     .replace(/step./gi,'*temp*').split('*temp*')
                     .map(str => <li className="pb-2 lg:pb-4">{str}</li>)
                     }
