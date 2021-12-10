@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-8y1)(%-wiccr%q+_09dy&+6_4&pu6^rbmto!fzwf@5u3lt20zf
 # SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-# DEBUG = True
-DEBUG = False
+DEBUG = True
+# DEBUG = False
 
 ALLOWED_HOSTS = [
     'react-dj-todoapp.herokuapp.com', '127.0.0.1:8000', 'localhost'
@@ -155,8 +155,8 @@ dotenv_file = os.path.join(BASE_DIR, ".env")
 if os.path.isfile(dotenv_file):
     dotenv.load_dotenv(dotenv_file)
 
-DATABASES = {}
-DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+# DATABASES = {}
+# DATABASES['default'] = dj_database_url.config(conn_max_age=600)
 
 options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
