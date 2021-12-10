@@ -29,8 +29,9 @@ DEBUG = True
 # DEBUG = False
 
 ALLOWED_HOSTS = [
-    'react-dj-todoapp.herokuapp.com', '127.0.0.1:8000', 'localhost'
+    'react-dj-todoapp.herokuapp.com', '127.0.0.1:8000', 'localhost', '127.0.0.1'
 ]
+
 # '192.168.0.228',
 # '127.0.0.1',
 
@@ -162,7 +163,7 @@ options = DATABASES['default'].get('OPTIONS', {})
 options.pop('sslmode', None)
 
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'build/static')
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'staticfiles')
+# ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')

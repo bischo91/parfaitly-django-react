@@ -1,6 +1,6 @@
 import React from "react";
-import profile_pic from "../images/profile.png";
-import profile_animated from "../images/profile_animated.png";
+import Profile_pic from "../images/profile.png";
+import Profile_animated from "../images/profile_animated.png";
 import Footer from "../components/Footer";
 
 function flipimg(){
@@ -19,9 +19,9 @@ function About(props){
             className="flip-image"
             onMouseOver={flipimg}
             onMouseOut={flipimg}>
-            <img src={profile_animated} alt="Brian Cho" className="profile-front profile-img"/>
-            <img src={profile_pic} alt="" className="profile-back profile-img"/>
-          </div>
+              <img src={Profile_animated} alt="Brian Cho" className="profile-front profile-img"/>
+              <img src={Profile_pic} alt="" className="profile-back profile-img"/>
+           </div>
         </div>
         {/* Intro */}
         <div className="bg-primary h-full relative top-96 block justify-around">

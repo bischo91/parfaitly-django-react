@@ -21,6 +21,4 @@ urlpatterns = [
     path('', include('dessert.urls')),
     path('', include('frontend.urls')),
     path('recipe/', include('frontend.urls')),
-
-
 ]
