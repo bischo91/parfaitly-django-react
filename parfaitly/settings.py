@@ -14,7 +14,7 @@ from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+# BASE_DIR = Path(__file__).resolve().root.root
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -25,13 +25,14 @@ SECRET_KEY = 'django-insecure-8y1)(%-wiccr%q+_09dy&+6_4&pu6^rbmto!fzwf@5u3lt20zf
 # SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-# DEBUG = False
+# DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = [
-    '192.168.0.228',
-    '127.0.0.1',
+    'react-dj-todoapp.herokuapp.com', '127.0.0.1:8000', 'localhost'
 ]
+# '192.168.0.228',
+# '127.0.0.1',
 
 # Application definition
 
@@ -65,6 +66,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'livereload.middleware.LiveReloadScript',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'parfaitly.urls'
@@ -72,7 +74,7 @@ ROOT_URLCONF = 'parfaitly.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'build')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -139,3 +141,28 @@ STATIC_URL = '/static/'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# deployment
+# https://dev.to/mdrhmn/deploying-react-django-app-using-heroku-2gfa
+
+import django_heroku
+import dotenv
+import dj_database_url
+
+django_heroku.settings(locals())
+
+dotenv_file = os.path.join(BASE_DIR, ".env")
+if os.path.isfile(dotenv_file):
+    dotenv.load_dotenv(dotenv_file)
+
+DATABASES = {}
+DATABASES['default'] = dj_database_url.config(conn_max_age=600)
+
+options = DATABASES['default'].get('OPTIONS', {})
+options.pop('sslmode', None)
+
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'build/static')
+]
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
