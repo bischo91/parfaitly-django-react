@@ -29,7 +29,7 @@ DEBUG = True
 # DEBUG = False
 
 ALLOWED_HOSTS = [
-    'react-dj-todoapp.herokuapp.com', '127.0.0.1:8000', 'localhost', '127.0.0.1'
+    'react-dj-todoapp.herokuapp.com', '127.0.0.1:8000', 'localhost', '127.0.0.1','https://warm-hollows-00340.herokuapp.com'
 ]
 
 # '192.168.0.228',
