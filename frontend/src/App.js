@@ -34,7 +34,6 @@ class App extends Component {
             <Route path="/recipe" exact={true} component={Recipe} />
             <Route path="/recipe/:category" component={RecipeDetail}/>
           </HashRouter>
-        </div>
         <Footer />
       </div>
     );
