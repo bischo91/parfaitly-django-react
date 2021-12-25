@@ -27,7 +27,6 @@ class App extends Component {
 
   render() {
     return (
-      <div>
         <div className="bg-primary flex flex-col h-full min-h-screen z-20">
           <HashRouter>
           <Navigation />

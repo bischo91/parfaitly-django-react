@@ -13,7 +13,7 @@ function About(props){
     document.title = "Parfaitlyme"
     return (
       <div>
-        {/* Profile image */}
+        {/* Profile image - removed for now
         <div className="flip relative top-10 z-40">
           <div id="profileimg"
             className="flip-image"
@@ -22,7 +22,7 @@ function About(props){
             <img src={profile_animated} alt="Brian Cho" className="profile-front profile-img"/>
             <img src={profile_pic} alt="" className="profile-back profile-img"/>
           </div>
-        </div>
+        </div>*/}
         {/* Intro */}
         <div className="bg-primary h-full relative top-96 block justify-around">
           <p className="font-mono text-center text-secondary text-lg">
